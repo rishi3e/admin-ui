@@ -1,0 +1,76 @@
+<div class="admin_UI">
+  <div>
+    <label for="search-text" class="search-container">Search...</label>
+    <br />
+    <input
+      type="input"
+      id="search-text"
+      aria-describedby="search-text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by name, email or role"
+      autofocus
+    />
+  </div>
+  <hr />
+  <table>
+    <tr class="heading">
+      <th>
+        <mat-checkbox
+          class="example-margin"
+          [checked]="allComplete"
+          [color]="IndeterminateColor"
+          [indeterminate]="someComplete()"
+          (change)="setAll($event.checked); showAllBackground()"
+        >
+        </mat-checkbox>
+      </th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+    <tr
+      *ngFor="let user of ELEMENT_DATA | searchPipe : searchTerm; let i = index"
+      class="userDetails" [ngClass]="(changBackground[i]?'data-selected': '')"
+    >
+      <td>
+        <mat-checkbox
+          [(ngModel)]="user.completed"
+          [color]="user.color"
+          (ngModelChange)="updateAllComplete()"
+          (change)="showBackground(i)"
+        >
+        </mat-checkbox>
+      </td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <mat-icon class="btn editBTN" (click)="editEntry(i)">edit</mat-icon>
+        <mat-icon class="btn deleteBTN" (click)="deleteEntry(i)"
+          >delete</mat-icon
+        >
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="deleteSelected()"
+      class="delBTN"
+    >
+      Delete Selected
+    </button>
+
+    <mat-paginator
+      class="paginator"
+      [length]="UsersLength"
+      [pageSize]="ELEMENT_DATA.length"
+      showFirstLastButtons
+      (page)="OnPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

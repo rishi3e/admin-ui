@@ -1,0 +1,64 @@
+.admin_UI {
+  margin: 10px 10px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  /* border: 1px solid #726c6b; */
+  text-align: center;
+  padding: 8px;
+}
+
+.heading {
+  background-color: #be77d5;
+}
+
+.userDetails {
+  background-color: #dec3aa;
+}
+
+.data-selected {
+  background-color: #dfe4ea;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 4px 4px;
+}
+
+.editBTN {
+  margin-right: 6px;
+}
+
+.deleteBTN {
+  margin-left: 6px;
+}
+
+.delBTN {
+  float: left;
+  margin: 10px 10px;
+}
+
+.paginator {
+  float: right;
+}
+
+.search-container {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  width: calc(100% - 24px);
+  font-size: 18px;
+  font-weight: 600;
+  color: #6a2370;
+  padding: 10px 5px;
+}
